@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#174a3a">
+<title>Radiátorszelep-csere – Attila utca 2–4–6.</title>
+<style>
+:root{--green:#174a3a;--green2:#24664f;--cream:#f5f4ef;--ink:#202925;--muted:#64716b;--line:#d9e1dc}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:var(--green);color:white;padding:34px 20px 30px} .wrap{max-width:860px;margin:auto}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.76rem;font-weight:700;opacity:.85}
+h1{font-size:clamp(1.8rem,5vw,2.65rem);line-height:1.12;margin:.55rem 0 1rem} header p{max-width:660px;margin:0;color:#e4eee8}
+main{max-width:860px;margin:24px auto;padding:0 16px 44px}
+.card{background:white;border:1px solid var(--line);border-radius:18px;padding:clamp(18px,4vw,30px);box-shadow:0 8px 30px #173e2b0b;margin-bottom:18px}
+h2{font-size:1.25rem;margin:0 0 14px;color:var(--green)} .note{background:#eef5f0;border-left:4px solid var(--green2);padding:12px 14px;border-radius:8px;color:#2d4b3d;margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}
+label{font-weight:650;font-size:.95rem} input,select{font:inherit;width:100%;min-height:48px;padding:10px 12px;border:1px solid #bfcac3;border-radius:9px;background:white;color:var(--ink)} input:focus,select:focus{outline:3px solid #b6d8c5;border-color:var(--green2)}
+.help{font-size:.85rem;color:var(--muted);margin:2px 0 0}
+.radiator{padding:14px;border:1px solid var(--line);border-radius:12px;margin:10px 0;display:grid;grid-template-columns:1fr 1.2fr;gap:14px;align-items:center}.radtitle{font-weight:700;color:var(--green)}
+.valves{display:flex;gap:10px;flex-wrap:wrap}.valves label{font-weight:500;border:1px solid var(--line);padding:9px 12px;border-radius:9px;display:flex;align-items:center;gap:7px;cursor:pointer}.valves input{width:18px;min-height:18px;accent-color:var(--green)}
+.diagram{display:grid;grid-template-columns:1fr 1fr;gap:14px}.diagram figure{margin:0;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}.diagram svg{width:100%;max-width:220px;height:105px}.diagram figcaption{font-weight:700;color:var(--green)}.diagram small{display:block;color:var(--muted);font-weight:400;margin-top:3px}
+button,.button{display:inline-flex;justify-content:center;align-items:center;gap:8px;background:var(--green);color:white;border:0;border-radius:10px;padding:14px 20px;font:inherit;font-weight:750;text-decoration:none;cursor:pointer;min-height:50px}button:hover,.button:hover{background:var(--green2)}.actions{display:flex;gap:12px;flex-wrap:wrap}.secondary{background:white;color:var(--green);border:1px solid var(--green)}.fine{font-size:.85rem;color:var(--muted)} footer{text-align:center;color:var(--muted);padding:8px 16px 30px;font-size:.85rem}
+@media(max-width:600px){.grid,.diagram{grid-template-columns:1fr}.radiator{grid-template-columns:1fr;gap:8px}.actions>*{width:100%}}
+@media print{body{background:white}header{padding:18px;background:white;color:#111;border-bottom:2px solid #174a3a}header p{color:#333}.card{box-shadow:none;margin:10px 0;padding:14px}main{margin:0 auto}.actions,footer{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="eyebrow">Lakossági adatbekérés</div>
+<h1>Radiátorszelep-csere</h1>
+<p>Attila utca 2–4–6. tulajdonosai részére. Kérjük, adja meg az alábbi adatokat, hogy a radiátorszelepek cseréjét elő lehessen készíteni.</p>
+</div></header>
+<main>
+<div class="card">
+<p class="note"><strong>Kitöltési segítség:</strong> a lakásban található radiátorok számát adja meg, majd minden radiátornál válassza ki, hogy a szelep <strong>sarok</strong> vagy <strong>egyenes</strong> kivitelű. Ha nem biztos benne, válassza a „Nem tudom megállapítani” lehetőséget.</p>
+<form name="radiator-szelep-adatlap" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/koszonjuk.html">
+<input type="hidden" name="form-name" value="radiator-szelep-adatlap">
+<p hidden><label>Ne töltse ki: <input name="bot-field"></label></p>
+<div class="grid">
+<div class="field full"><label for="owner">Tulajdonos neve *</label><input id="owner" name="Tulajdonos neve" autocomplete="name" required placeholder="Teljes név"></div>
+<div class="field"><label for="staircase">Lépcsőház *</label><select id="staircase" name="Lépcsőház" required><option value="">Válasszon…</option><option>A lépcsőház</option><option>B lépcsőház</option><option>C lépcsőház</option><option>Más / nem tudom</option></select><p class="help">Ha a ház jelölése nem A/B/C, írja a megjegyzésbe.</p></div>
+<div class="field"><label for="floor">Emelet *</label><input id="floor" name="Emelet" required placeholder="Pl. 3. emelet / földszint"></div>
+<div class="field"><label for="door">Ajtó / lakásszám *</label><input id="door" name="Ajtó vagy lakásszám" required placeholder="Pl. 12. ajtó"></div>
+<div class="field"><label for="count">Radiátorok száma a lakásban *</label><select id="count" name="Radiátorok száma" required><option value="">Válasszon…</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+</div>
+</div>
+<div class="card">
+<h2>Milyen szelep van a radiátorokon?</h2>
+<p class="help" style="margin-bottom:14px">Minden radiátornál külön válasszon. Az ábrák tájékoztató jellegűek.</p>
+<div class="diagram">
+<figure><svg viewBox="0 0 220 105" role="img" aria-label="Sarok szelep sematikus rajza"><g fill="none" stroke="#174a3a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 79 H92 V35 H143"/><path d="M126 35 H157"/><path d="M141 21 V49"/><path d="M136 21 H146"/><path d="M136 49 H146"/></g><rect x="155" y="24" width="40" height="22" rx="4" fill="#dce9e1" stroke="#174a3a" stroke-width="2"/><path d="M25 64 V94 M42 64 V94 M59 64 V94 M76 64 V94" stroke="#9bb9a7" stroke-width="2"/></svg><figcaption>Sarok szelep<small>A cső iránya 90°-ban fordul.</small></figcaption></figure>
+<figure><svg viewBox="0 0 220 105" role="img" aria-label="Egyenes szelep sematikus rajza"><g fill="none" stroke="#174a3a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 79 H157"/><path d="M141 65 V93"/><path d="M136 65 H146"/><path d="M136 93 H146"/></g><rect x="155" y="68" width="40" height="22" rx="4" fill="#dce9e1" stroke="#174a3a" stroke-width="2"/><path d="M25 64 V94 M42 64 V94 M59 64 V94 M76 64 V94" stroke="#9bb9a7" stroke-width="2"/></svg><figcaption>Egyenes szelep<small>A szelep és a cső egy vonalban van.</small></figcaption></figure>
+</div>
+<div id="radiatorFields" style="margin-top:18px"><p class="help">A radiátorszám kiválasztása után itt jelennek meg a szelepválasztók.</p></div>
+<div class="field" style="margin-top:18px"><label for="notes">Megjegyzés (nem kötelező)</label><input id="notes" name="Megjegyzés" placeholder="Pl. a lépcsőház pontos jelölése, bizonytalan szelep"></div>
+</div>
+<div class="card">
+<h2>Adatok elküldése</h2>
+<p class="fine">Az adatokat kizárólag a radiátorszelep-csere előkészítéséhez kérjük. Beküldés után az oldal visszaigazolást mutat. Az e-mailes értesítést a weboldal Netlify-beállításában kell bekapcsolni.</p>
+<div class="actions"><button type="submit">Adatok elküldése</button><button class="secondary" type="button" onclick="window.print()">Nyomtatás / mentés PDF-ként</button></div>
+</form>
+</div>
+</main>
+<footer>Attila utca 2–4–6. · Radiátorszelep-csere adatlap</footer>
+<script>
+const countSelect=document.getElementById('count');
+const holder=document.getElementById('radiatorFields');
+function renderRadiators(){
+ const raw=countSelect.value;
+ let n=parseInt(raw,10);
+ holder.innerHTML='';
+ if(!n||Number.isNaN(n)){holder.innerHTML='<p class="help">A radiátorszám kiválasztása után itt jelennek meg a szelepválasztók.</p>';return;}
+ const intro=document.createElement('p');intro.className='help';intro.textContent='Kérjük, minden radiátornál jelöljön meg egy típust. Legfeljebb 10 radiátor adható meg.';holder.appendChild(intro);
+ for(let i=1;i<=n;i++){
+  const box=document.createElement('div');box.className='radiator';
+  const title=document.createElement('div');title.className='radtitle';title.textContent='Radiátor '+i;
+  const opts=document.createElement('div');opts.className='valves';
+  [['Sarok','Sarok'],['Egyenes','Egyenes'],['Nem tudom megállapítani','Nem tudom']].forEach(([label,val],j)=>{
+   const lab=document.createElement('label');const inp=document.createElement('input');inp.type='radio';inp.name='Radiátor '+i+' szeleptípusa';inp.value=val;inp.required=true;
+   lab.appendChild(inp);lab.appendChild(document.createTextNode(label));opts.appendChild(lab);
+  });
+  box.appendChild(title);box.appendChild(opts);holder.appendChild(box);
+ }
+}
+countSelect.addEventListener('change',renderRadiators);
+</script>
+</body></html>
